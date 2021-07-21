@@ -1,0 +1,66 @@
+*{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+h1{
+  color: red;
+}
+.demo{
+  color: green;
+}
+#demo1{
+  color: aqua;
+}
+/*chọn tất cả thành phần trong tag*/
+.tag1 p{
+  color: blue;
+}
+/*chọn tất cả div và p*/
+div,p{
+  color: sienna;
+}
+/*chọn tất cả thành phần p nằm bên trong div*/
+div>p{
+  color: green;
+}
+/*chọn thành phần p được đặt ngay sau div*/
+div+p{
+  color: brown;
+}
+/*chọn thuộc tính trong thẻ*/
+a[target]{
+  color: green;
+}
+/*mọi element đều là box, box model bao quanh element, gồm
+content : nội dung
+padding : khoảng trống bao bọc content
+border : khung bao bọc padding và content
+margin : phần ngoài cùng của box model
+*/
+table{
+  width: 100%;
+}
+.spin {
+  display: flex;
+  justify-content: center;
+}
+.loader {
+  border: 10px solid red; /* Light grey */
+  border-top: 10px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite;
+
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+

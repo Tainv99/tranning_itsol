@@ -1,0 +1,90 @@
+<div class="container-fluid">
+<!--  <div *ngIf="loaderService.showLoader" class="loader">-->
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon>more_vert</mat-icon>
+          <span>DANH SÁCH LIÊN KẾT</span></mat-card-title>
+      </mat-card-header>
+      <hr>
+      <mat-card-content>
+        <p>Tìm kiếm</p>
+        <div class="boder">
+          <form (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-sm-1">Mã :</div>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" name="id" [(ngModel)]="connective.id"><br>
+              </div>
+              <div class="col-sm-1">Mã đơn vị KD:</div>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" name="codeDVKD" [(ngModel)]="connective.codeDVKD"><br>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-sm-1">Mã chi nhánh:</div>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" name="codeBranchAgent"
+                       [(ngModel)]="connective.codeBranchAgent"><br>
+              </div>
+              <div class="col-sm-1">Trạng thái:</div>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" name="statusLink" [(ngModel)]="connective.statusLink">
+              </div>
+
+              <div class="col-2">
+                <button mat-raised-button type="submit">Tìm kiếm</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <br>
+        <p>Danh sách liên kết</p>
+        <table class="table table-bordered">
+          <thead>
+          <tr>
+            <th>STT</th>
+            <th>Mã</th>
+            <th>Mã chi nhánh</th>
+            <th>Mã ĐVKD</th>
+            <th>Tên ĐVKD</th>
+            <th>Trạng thái</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let p of result">
+            <td>{{p.id}}</td>
+            <td>{{p.codeAgent}}</td>
+            <td>{{p.codeBranchAgent}}</td>
+            <td>{{p.codeDVKD}}</td>
+            <td>{{p.nameDVKD}}</td>
+            <td>{{p.statusLink}}</td>
+            <td>
+              <button mat-icon-button aria-label="icon" (click)="openDialogUpdate(p.id)">
+                <mat-icon>open_in_new</mat-icon>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="row">
+          <div class="col-sm-8">
+            <button mat-raised-button (click)="download()">Xuất Excel</button>
+          </div>
+          <div class="col-sm-2 nut">
+            <button mat-raised-button (click)="openDialog()">Import</button>
+            <button mat-raised-button>Thêm mới</button>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+<!--</div>-->
+<div>
+  <div class="spin">
+    <div *ngIf="loaderService.showLoader" class="loader">
+    </div>
+  </div>
+</div>
